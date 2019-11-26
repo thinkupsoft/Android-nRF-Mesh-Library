@@ -206,6 +206,8 @@ public class NrfMeshRepository implements MeshProvisioningStatusCallbacks, MeshS
         return mIsReconnecting;
     }
 
+    LiveData<ProvisionedMeshNode> getProvisionedMeshNodeLiveData(){ return mProvisionedMeshNodeLiveData; }
+
     boolean isProvisioningComplete() {
         return mIsProvisioningComplete;
     }
