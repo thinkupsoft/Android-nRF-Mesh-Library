@@ -569,6 +569,21 @@ public final class MeshNetwork extends BaseMeshNetwork {
         return models;
     }
 
+    public ProvisionedMeshNode getNode(MeshModel selectedModel) {
+        for (final ProvisionedMeshNode node : nodes) {
+            for (Map.Entry<Integer, Element> elementEntry : node.getElements().entrySet()) {
+                final Element element = elementEntry.getValue();
+                for (Map.Entry<Integer, MeshModel> modelEntry : element.getMeshModels().entrySet()) {
+                    final MeshModel model = modelEntry.getValue();
+                    if (model != null && model.getModelId() == selectedModel.getModelId()) {
+                        return node;
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
     public List<Scene> getScenes() {
         return scenes;
     }
