@@ -95,7 +95,7 @@ public final class LightHslStatus extends GenericStatusMessage implements Parcel
     }
 
     @Override
-    int getOpCode() {
+    public int getOpCode() {
         return OP_CODE;
     }
 

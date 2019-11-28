@@ -25,12 +25,12 @@ public class ProxyConfigFilterStatus extends ProxyConfigStatusMessage {
     }
 
     @Override
-    int getOpCode() {
+    public int getOpCode() {
         return ProxyConfigMessageOpCodes.FILTER_STATUS;
     }
 
     @Override
-    byte[] getParameters() {
+    public byte[] getParameters() {
         return mParameters;
     }
 

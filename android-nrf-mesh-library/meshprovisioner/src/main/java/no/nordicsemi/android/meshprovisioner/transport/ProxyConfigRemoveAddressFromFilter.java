@@ -40,7 +40,7 @@ public class ProxyConfigRemoveAddressFromFilter extends ProxyConfigMessage {
     }
 
     @Override
-    int getOpCode() {
+    public int getOpCode() {
         return ProxyConfigMessageOpCodes.REMOVE_ADDRESS;
     }
 

@@ -42,7 +42,7 @@ public class ProxyConfigAddAddressToFilter extends ProxyConfigMessage {
     }
 
     @Override
-    int getOpCode() {
+    public int getOpCode() {
         return ProxyConfigMessageOpCodes.ADD_ADDRESS;
     }
 

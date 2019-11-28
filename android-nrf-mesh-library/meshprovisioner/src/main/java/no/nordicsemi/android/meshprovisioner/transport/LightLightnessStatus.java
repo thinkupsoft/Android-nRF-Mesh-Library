@@ -93,7 +93,7 @@ public final class LightLightnessStatus extends GenericStatusMessage implements 
     }
 
     @Override
-    int getOpCode() {
+    public int getOpCode() {
         return OP_CODE;
     }
 

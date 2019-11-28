@@ -27,7 +27,7 @@ public class ProxyConfigSetFilterType extends ProxyConfigMessage {
     }
 
     @Override
-    int getOpCode() {
+    public int getOpCode() {
         return ProxyConfigMessageOpCodes.SET_FILTER_TYPE;
     }
 

@@ -94,7 +94,7 @@ public final class GenericOnOffStatus extends GenericStatusMessage implements Pa
     }
 
     @Override
-    int getOpCode() {
+    public int getOpCode() {
         return OP_CODE;
     }
 

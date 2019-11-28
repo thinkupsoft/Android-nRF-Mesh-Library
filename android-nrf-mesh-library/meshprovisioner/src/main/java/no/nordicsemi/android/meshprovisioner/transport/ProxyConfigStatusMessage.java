@@ -17,7 +17,7 @@ public abstract class ProxyConfigStatusMessage extends MeshMessage {
     public abstract void parseStatusParameters();
 
     @Override
-    int getAid() {
+    public int getAid() {
         return -1;
     }
 

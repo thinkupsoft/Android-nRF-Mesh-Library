@@ -97,7 +97,7 @@ public final class SceneStatus extends GenericStatusMessage implements Parcelabl
     }
 
     @Override
-    int getOpCode() {
+    public int getOpCode() {
         return OP_CODE;
     }
 

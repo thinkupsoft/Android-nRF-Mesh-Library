@@ -93,7 +93,7 @@ public final class SceneRegisterStatus extends GenericStatusMessage implements P
     }
 
     @Override
-    int getOpCode() {
+    public int getOpCode() {
         return OP_CODE;
     }
 
