@@ -5,7 +5,7 @@ public abstract class ConfigMessage extends MeshMessage {
     /**
      * Creates the parameters for a given mesh message.
      */
-    abstract void assembleMessageParameters();
+    public abstract void assembleMessageParameters();
 
     @Override
     public final int getAkf() {

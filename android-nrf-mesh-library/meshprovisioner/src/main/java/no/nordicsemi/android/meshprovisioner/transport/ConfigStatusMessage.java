@@ -89,7 +89,7 @@ public abstract class ConfigStatusMessage extends MeshMessage {
      * @param statusCode StatusCode received by the status message
      * @return The specific status code name
      */
-    final String getStatusCodeName(final int statusCode) {
+    public final String getStatusCodeName(final int statusCode) {
         switch (fromStatusCode(statusCode)) {
             case SUCCESS:
                 return "Success";

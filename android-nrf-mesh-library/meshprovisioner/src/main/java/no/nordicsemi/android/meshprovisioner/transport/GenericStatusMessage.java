@@ -12,7 +12,7 @@ public abstract class GenericStatusMessage extends MeshMessage {
     /**
      * Parses the status parameters returned by a status message
      */
-    abstract void parseStatusParameters();
+    public abstract void parseStatusParameters();
 
     @Override
     public final int getAkf() {

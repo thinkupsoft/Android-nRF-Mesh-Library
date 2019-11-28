@@ -8,23 +8,23 @@ public abstract class ProxyConfigMessage extends MeshMessage {
     /**
      * Creates the parameters for a given mesh message.
      */
-    abstract void assembleMessageParameters();
+    public abstract void assembleMessageParameters();
 
     /**
      * Returns the parameters of this message.
      *
      * @return parameters
      */
-    abstract byte[] getParameters();
+    public abstract byte[] getParameters();
 
 
     @Override
-    int getAkf() {
+    public int getAkf() {
         return -1;
     }
 
     @Override
-    int getAid() {
+    public int getAid() {
         return -1;
     }
 

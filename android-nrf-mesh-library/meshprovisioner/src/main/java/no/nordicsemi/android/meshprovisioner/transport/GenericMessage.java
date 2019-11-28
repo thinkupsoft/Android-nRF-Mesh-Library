@@ -10,8 +10,8 @@ public abstract class GenericMessage extends MeshMessage {
     public static final int GENERIC_TRANSITION_STEP_2 = 2;
     public static final int GENERIC_TRANSITION_STEP_3 = 3;
 
-    final ApplicationKey mAppKey;
-    byte mAid;
+    public final ApplicationKey mAppKey;
+    public byte mAid;
 
     /**
      * Constructs a generic message
@@ -51,5 +51,5 @@ public abstract class GenericMessage extends MeshMessage {
     /**
      * Creates the parameters for a given mesh message.
      */
-    abstract void assembleMessageParameters();
+    public abstract void assembleMessageParameters();
 }

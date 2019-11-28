@@ -14,7 +14,7 @@ public abstract class ProxyConfigStatusMessage extends MeshMessage {
     /**
      * Parses the status parameters returned by a status message
      */
-    abstract void parseStatusParameters();
+    public abstract void parseStatusParameters();
 
     @Override
     int getAid() {
@@ -22,7 +22,7 @@ public abstract class ProxyConfigStatusMessage extends MeshMessage {
     }
 
     @Override
-    int getAkf() {
+    public int getAkf() {
         return -1;
     }
 
