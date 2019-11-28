@@ -3,7 +3,7 @@ package no.nordicsemi.android.meshprovisioner.transport;
 /**
  * Abstract wrapper class for mesh message.
  */
-abstract class ProxyConfigMessage extends MeshMessage {
+public abstract class ProxyConfigMessage extends MeshMessage {
 
     /**
      * Creates the parameters for a given mesh message.

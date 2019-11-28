@@ -1,6 +1,6 @@
 package no.nordicsemi.android.meshprovisioner.transport;
 
-abstract class ConfigMessage extends MeshMessage {
+public abstract class ConfigMessage extends MeshMessage {
 
     /**
      * Creates the parameters for a given mesh message.

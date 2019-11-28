@@ -3,7 +3,7 @@ package no.nordicsemi.android.meshprovisioner.transport;
 import androidx.annotation.NonNull;
 import no.nordicsemi.android.meshprovisioner.ApplicationKey;
 
-abstract class GenericMessage extends MeshMessage {
+public abstract class GenericMessage extends MeshMessage {
 
     public static final int GENERIC_TRANSITION_STEP_0 = 0;
     public static final int GENERIC_TRANSITION_STEP_1 = 1;

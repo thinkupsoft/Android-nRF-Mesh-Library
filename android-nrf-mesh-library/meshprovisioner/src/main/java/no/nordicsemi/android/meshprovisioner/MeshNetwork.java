@@ -542,6 +542,28 @@ public final class MeshNetwork extends BaseMeshNetwork {
         return elements;
     }
 
+    public List<ProvisionedMeshNode> getNodes(final Group group) {
+        final List<ProvisionedMeshNode> nodesGroup = new ArrayList<>();
+        for (final ProvisionedMeshNode node : nodes) {
+            for (Map.Entry<Integer, Element> elementEntry : node.getElements().entrySet()) {
+                final Element element = elementEntry.getValue();
+                for (Map.Entry<Integer, MeshModel> modelEntry : element.getMeshModels().entrySet()) {
+                    final MeshModel model = modelEntry.getValue();
+                    if (model != null) {
+                        final List<Integer> subscriptionAddresses = model.getSubscribedAddresses();
+                        for (Integer subscriptionAddress : subscriptionAddresses) {
+                            if (group.getAddress() == subscriptionAddress) {
+                                if (!nodesGroup.contains(node))
+                                    nodesGroup.add(node);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return nodesGroup;
+    }
+
     /**
      * Returns a list of models assigned to a particular group
      *
