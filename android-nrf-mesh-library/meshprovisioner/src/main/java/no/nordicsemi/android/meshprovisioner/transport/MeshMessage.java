@@ -16,28 +16,28 @@ public abstract class MeshMessage {
      *
      * @return application key flag
      */
-    abstract int getAkf();
+    public abstract int getAkf();
 
     /**
      * Returns application key identifier used for this message.
      *
      * @return application key identifier
      */
-    abstract int getAid();
+    public abstract int getAid();
 
     /**
      * Returns the opCode of this message
      *
      * @return opcode
      */
-    abstract int getOpCode();
+    public abstract int getOpCode();
 
     /**
      * Returns the parameters of this message.
      *
      * @return parameters
      */
-    abstract byte[] getParameters();
+    public abstract byte[] getParameters();
 
     /**
      * Returns the size of message integrity check used for this message.
@@ -60,7 +60,7 @@ public abstract class MeshMessage {
      *
      * @param message access message
      */
-    void setMessage(@NonNull final Message message) {
+    public void setMessage(@NonNull final Message message) {
         mMessage = message;
     }
 
