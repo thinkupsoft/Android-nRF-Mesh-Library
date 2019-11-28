@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 public abstract class GenericStatusMessage extends MeshMessage {
 
 
-    GenericStatusMessage(@NonNull final AccessMessage message) {
+    public GenericStatusMessage(@NonNull final AccessMessage message) {
         mMessage = message;
     }
 

@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
  */
 public abstract class ProxyConfigStatusMessage extends MeshMessage {
 
-    ProxyConfigStatusMessage(@NonNull final ControlMessage message) {
+    public ProxyConfigStatusMessage(@NonNull final ControlMessage message) {
         mMessage = message;
     }
 
