@@ -40,7 +40,7 @@ public class VendorModelMessageUnacked extends GenericMessage {
     }
 
     @Override
-    final void assembleMessageParameters() {
+    public final void assembleMessageParameters() {
         mAid = SecureUtils.calculateK4(mAppKey.getKey());
     }
 

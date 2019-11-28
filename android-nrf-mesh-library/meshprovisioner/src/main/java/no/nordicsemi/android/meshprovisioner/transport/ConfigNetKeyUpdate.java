@@ -64,7 +64,7 @@ public class ConfigNetKeyUpdate extends ConfigMessage {
 
 
     @Override
-    void assembleMessageParameters() {
+    public void assembleMessageParameters() {
         Log.v(TAG, "NetKeyIndex: " + mNetKey.getKeyIndex());
         final byte[] netKeyIndex = MeshParserUtils.addKeyIndexPadding(mNetKey.getKeyIndex());
 

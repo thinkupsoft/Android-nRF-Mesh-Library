@@ -25,7 +25,7 @@ public class ConfigDefaultTtlGet extends ConfigMessage {
     }
 
     @Override
-    void assembleMessageParameters() {
+    public void assembleMessageParameters() {
         //Do nothing as ConfigNodeReset message does not have parameters
     }
 }

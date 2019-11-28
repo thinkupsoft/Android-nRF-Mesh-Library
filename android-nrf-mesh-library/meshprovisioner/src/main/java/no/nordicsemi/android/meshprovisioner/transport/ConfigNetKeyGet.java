@@ -46,7 +46,7 @@ public class ConfigNetKeyGet extends ConfigMessage {
     }
 
     @Override
-    void assembleMessageParameters() {
+    public void assembleMessageParameters() {
         //Do nothing as ConfigNetKeyGet message does not have parameters
     }
 }

@@ -75,7 +75,7 @@ public final class LightHslStatus extends GenericStatusMessage implements Parcel
     }
 
     @Override
-    void parseStatusParameters() {
+    public void parseStatusParameters() {
         Log.v(TAG, "Received light hsl status from: " + MeshAddress.formatAddress(mMessage.getSrc(), true));
         final ByteBuffer buffer = ByteBuffer.wrap(mParameters).order(ByteOrder.LITTLE_ENDIAN);
         mPresentHslLightness = buffer.getShort() & 0xFFFF;

@@ -94,7 +94,7 @@ public class LightCtlSet extends GenericMessage {
     }
 
     @Override
-    void assembleMessageParameters() {
+    public void assembleMessageParameters() {
         mAid = SecureUtils.calculateK4(mAppKey.getKey());
         final ByteBuffer paramsBuffer;
         Log.v(TAG, "Lightness: " + mLightness);

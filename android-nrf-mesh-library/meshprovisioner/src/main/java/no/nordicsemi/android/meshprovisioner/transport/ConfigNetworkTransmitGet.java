@@ -47,7 +47,7 @@ public final class ConfigNetworkTransmitGet extends ConfigMessage {
     }
 
     @Override
-    final void assembleMessageParameters() {
+    public final void assembleMessageParameters() {
         // Do nothing as this message has no parameters
     }
 }

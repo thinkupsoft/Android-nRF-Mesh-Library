@@ -47,7 +47,7 @@ public final class ConfigRelayGet extends ConfigMessage {
     }
 
     @Override
-    final void assembleMessageParameters() {
+    public final void assembleMessageParameters() {
         // Do nothing as this message has no parameters
     }
 }

@@ -37,7 +37,7 @@ public class ConfigProxySet extends ConfigMessage {
     }
 
     @Override
-    void assembleMessageParameters() {
+    public void assembleMessageParameters() {
         mParameters = new byte[]{(byte) proxyState};
     }
 

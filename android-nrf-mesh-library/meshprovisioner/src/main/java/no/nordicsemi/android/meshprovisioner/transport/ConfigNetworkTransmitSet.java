@@ -59,7 +59,7 @@ public final class ConfigNetworkTransmitSet extends ConfigMessage {
     }
 
     @Override
-    final void assembleMessageParameters() {
+    public final void assembleMessageParameters() {
         mParameters = new byte[]{(byte) (((mNetworkTransmitIntervalSteps << 3) & 0xFF) | (mNetworkTransmitCount & 0xFF))};
     }
 

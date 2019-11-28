@@ -22,7 +22,7 @@ public class ProxyConfigSetFilterType extends ProxyConfigMessage {
     }
 
     @Override
-    void assembleMessageParameters() {
+    public void assembleMessageParameters() {
         mParameters = new byte[]{(byte) filterType.getType()};
     }
 
@@ -32,7 +32,7 @@ public class ProxyConfigSetFilterType extends ProxyConfigMessage {
     }
 
     @Override
-    byte[] getParameters() {
+    public byte[] getParameters() {
         return mParameters;
     }
 }

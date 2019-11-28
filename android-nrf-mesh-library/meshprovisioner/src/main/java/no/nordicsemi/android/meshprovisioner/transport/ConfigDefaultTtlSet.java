@@ -34,7 +34,7 @@ public class ConfigDefaultTtlSet extends ConfigMessage {
     }
 
     @Override
-    void assembleMessageParameters() {
+    public void assembleMessageParameters() {
         mParameters = new byte[]{(byte) mTtl};
         //Do nothing as ConfigNodeReset message does not have parameters
     }

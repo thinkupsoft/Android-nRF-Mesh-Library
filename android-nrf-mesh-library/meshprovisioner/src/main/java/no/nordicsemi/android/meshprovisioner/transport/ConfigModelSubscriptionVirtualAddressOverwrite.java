@@ -27,6 +27,7 @@ import java.nio.ByteOrder;
 import java.util.UUID;
 
 import androidx.annotation.NonNull;
+
 import no.nordicsemi.android.meshprovisioner.opcodes.ConfigMessageOpCodes;
 import no.nordicsemi.android.meshprovisioner.utils.MeshAddress;
 import no.nordicsemi.android.meshprovisioner.utils.MeshParserUtils;
@@ -75,7 +76,7 @@ public final class ConfigModelSubscriptionVirtualAddressOverwrite extends Config
     }
 
     @Override
-    void assembleMessageParameters() {
+    public void assembleMessageParameters() {
 
         final ByteBuffer paramsBuffer;
         //We check if the model identifier value is within the range of a 16-bit value here. If it is then it is a sigmodel

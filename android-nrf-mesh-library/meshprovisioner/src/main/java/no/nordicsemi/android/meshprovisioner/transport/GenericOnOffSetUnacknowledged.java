@@ -74,7 +74,7 @@ public class GenericOnOffSetUnacknowledged extends GenericMessage {
     }
 
     @Override
-    void assembleMessageParameters() {
+    public void assembleMessageParameters() {
         mAid = SecureUtils.calculateK4(mAppKey.getKey());
         final ByteBuffer paramsBuffer;
         Log.v(TAG, "State: " + (mState ? "ON" : "OFF"));

@@ -75,7 +75,7 @@ public final class GenericOnOffStatus extends GenericStatusMessage implements Pa
     }
 
     @Override
-    void parseStatusParameters() {
+    public void parseStatusParameters() {
         Log.v(TAG, "Received generic on off status from: " + MeshAddress.formatAddress(mMessage.getSrc(), true));
         final ByteBuffer buffer = ByteBuffer.wrap(mParameters).order(ByteOrder.LITTLE_ENDIAN);
         buffer.position(0);

@@ -64,7 +64,7 @@ public final class ConfigSigModelSubscriptionGet extends ConfigMessage {
     }
 
     @Override
-    void assembleMessageParameters() {
+    public void assembleMessageParameters() {
         final ByteBuffer paramsBuffer;
         final byte[] elementAddress = MeshAddress.addressIntToBytes(mElementAddress);
         paramsBuffer = ByteBuffer.allocate(SIG_MODEL_SUBSCRIPTION_GET_LENGTH).order(ByteOrder.LITTLE_ENDIAN);

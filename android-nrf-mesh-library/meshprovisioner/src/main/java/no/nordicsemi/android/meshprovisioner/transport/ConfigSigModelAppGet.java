@@ -68,7 +68,7 @@ public class ConfigSigModelAppGet extends ConfigMessage {
 
 
     @Override
-    void assembleMessageParameters() {
+    public void assembleMessageParameters() {
         final ByteBuffer paramsBuffer;
         Log.v(TAG, "Element address: " + MeshAddress.formatAddress(elementAddress, true));
         Log.v(TAG, "Model: " + CompositionDataParser.formatModelIdentifier(modelIdentifier, false));

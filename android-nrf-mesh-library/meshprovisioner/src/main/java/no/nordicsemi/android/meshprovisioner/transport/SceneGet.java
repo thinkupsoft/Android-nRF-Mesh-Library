@@ -32,7 +32,7 @@ public class SceneGet extends GenericMessage {
     }
 
     @Override
-    void assembleMessageParameters() {
+    public void assembleMessageParameters() {
         mAid = SecureUtils.calculateK4(mAppKey.getKey());
     }
 }

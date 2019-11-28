@@ -69,7 +69,7 @@ public final class ConfigModelAppBind extends ConfigMessage {
         return OP_CODE;
     }
 
-    void assembleMessageParameters() {
+    public void assembleMessageParameters() {
         final ByteBuffer paramsBuffer;
         final byte[] applicationKeyIndex = MeshParserUtils.addKeyIndexPadding(mAppKeyIndex);
         //We check if the model identifier value is within the range of a 16-bit value here. If it is then it is a sigmodel

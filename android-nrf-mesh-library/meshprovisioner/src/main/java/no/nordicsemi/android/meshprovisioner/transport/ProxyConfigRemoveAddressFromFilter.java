@@ -26,7 +26,7 @@ public class ProxyConfigRemoveAddressFromFilter extends ProxyConfigMessage {
     }
 
     @Override
-    void assembleMessageParameters() throws IllegalArgumentException {
+    public void assembleMessageParameters() throws IllegalArgumentException {
         if (addresses.isEmpty())
             throw new IllegalArgumentException("Address list cannot be empty!");
         final int length = (int) Math.pow(2, addresses.size());
@@ -45,7 +45,7 @@ public class ProxyConfigRemoveAddressFromFilter extends ProxyConfigMessage {
     }
 
     @Override
-    byte[] getParameters() {
+    public byte[] getParameters() {
         return mParameters;
     }
 

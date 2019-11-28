@@ -77,7 +77,7 @@ public final class ConfigModelSubscriptionDelete extends ConfigMessage {
     }
 
     @Override
-    void assembleMessageParameters() {
+    public void assembleMessageParameters() {
 
         final ByteBuffer paramsBuffer;
         //We check if the model identifier value is within the range of a 16-bit value here. If it is then it is a sigmodel

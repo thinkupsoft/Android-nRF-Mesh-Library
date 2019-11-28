@@ -104,7 +104,7 @@ public class ConfigModelPublicationVirtualAddressSet extends ConfigMessage {
 
 
     @Override
-    void assembleMessageParameters() {
+    public void assembleMessageParameters() {
         final ByteBuffer paramsBuffer;
         final byte[] applicationKeyIndex = MeshParserUtils.addKeyIndexPadding(appKeyIndex);
         Log.v(TAG, "AppKeyIndex: " + appKeyIndex);

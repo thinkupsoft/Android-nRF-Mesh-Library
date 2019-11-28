@@ -24,7 +24,9 @@ package no.nordicsemi.android.meshprovisioner.transport;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+
 import androidx.annotation.NonNull;
+
 import android.util.Log;
 
 import java.nio.ByteBuffer;
@@ -72,7 +74,7 @@ public final class SceneRegisterStatus extends GenericStatusMessage implements P
     }
 
     @Override
-    void parseStatusParameters() {
+    public void parseStatusParameters() {
         Log.v(TAG, "Received scene register status from: " + MeshAddress.formatAddress(mMessage.getSrc(), true));
         final ByteBuffer buffer = ByteBuffer.wrap(mParameters).order(ByteOrder.LITTLE_ENDIAN);
         buffer.position(0);

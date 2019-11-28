@@ -1,6 +1,7 @@
 package no.nordicsemi.android.meshprovisioner.transport;
 
 import androidx.annotation.NonNull;
+
 import android.util.Log;
 
 import java.nio.ByteBuffer;
@@ -42,7 +43,7 @@ public class SceneStoreUnacknowledged extends GenericMessage {
     }
 
     @Override
-    void assembleMessageParameters() {
+    public void assembleMessageParameters() {
         mAid = SecureUtils.calculateK4(mAppKey.getKey());
         final ByteBuffer paramsBuffer;
         Log.v(TAG, "State Number: " + mSceneNumber);

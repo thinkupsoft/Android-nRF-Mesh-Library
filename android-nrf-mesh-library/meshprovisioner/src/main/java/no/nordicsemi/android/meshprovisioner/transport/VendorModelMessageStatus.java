@@ -68,7 +68,7 @@ public final class VendorModelMessageStatus extends GenericStatusMessage impleme
     }
 
     @Override
-    void parseStatusParameters() {
+    public void parseStatusParameters() {
         Log.v(TAG, "Received Vendor model status: " + MeshParserUtils.bytesToHex(mParameters, false));
     }
 

@@ -74,7 +74,7 @@ public class ConfigAppKeyUpdate extends ConfigMessage {
 
 
     @Override
-    void assembleMessageParameters() {
+    public void assembleMessageParameters() {
         Log.v(TAG, "NetKeyIndex: " + mAppKey.getBoundNetKeyIndex());
         Log.v(TAG, "AppKeyIndex: " + mAppKey.getKeyIndex());
         final byte[] netKeyIndex = MeshParserUtils.addKeyIndexPadding(mAppKey.getBoundNetKeyIndex());

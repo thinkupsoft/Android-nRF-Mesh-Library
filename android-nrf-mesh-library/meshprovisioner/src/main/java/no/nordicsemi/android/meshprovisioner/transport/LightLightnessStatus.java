@@ -75,7 +75,7 @@ public final class LightLightnessStatus extends GenericStatusMessage implements 
     }
 
     @Override
-    void parseStatusParameters() {
+    public void parseStatusParameters() {
         Log.v(TAG, "Received light lightness status from: " + MeshAddress.formatAddress(mMessage.getSrc(), true));
         final ByteBuffer buffer = ByteBuffer.wrap(mParameters).order(ByteOrder.LITTLE_ENDIAN);
         mPresentLightness = buffer.getShort() & 0xFFFF;
