@@ -9,7 +9,7 @@ public abstract class MeshMessage {
 
     private final int mAszmic = 0;
     protected Message mMessage;
-    byte[] mParameters;
+    public byte[] mParameters;
 
     /**
      * Returns the application key flag used for this message.
