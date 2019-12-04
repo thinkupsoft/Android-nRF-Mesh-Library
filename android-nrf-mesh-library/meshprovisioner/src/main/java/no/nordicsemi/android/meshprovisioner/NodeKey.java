@@ -11,7 +11,6 @@ import androidx.annotation.RestrictTo;
 /**
  * Holds the key index and the updated state for that key
  */
-@RestrictTo(RestrictTo.Scope.LIBRARY)
 public class NodeKey implements Parcelable {
     @Expose
     @SerializedName("index")
