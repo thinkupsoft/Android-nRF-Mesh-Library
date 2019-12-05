@@ -16,6 +16,7 @@ import java.util.UUID;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+
 import no.nordicsemi.android.log.LogSession;
 import no.nordicsemi.android.log.Logger;
 import no.nordicsemi.android.meshprovisioner.ApplicationKey;
@@ -206,7 +207,9 @@ public class NrfMeshRepository implements MeshProvisioningStatusCallbacks, MeshS
         return mIsReconnecting;
     }
 
-    LiveData<ProvisionedMeshNode> getProvisionedMeshNodeLiveData(){ return mProvisionedMeshNodeLiveData; }
+    LiveData<ProvisionedMeshNode> getProvisionedMeshNodeLiveData() {
+        return mProvisionedMeshNodeLiveData;
+    }
 
     boolean isProvisioningComplete() {
         return mIsProvisioningComplete;
@@ -915,8 +918,21 @@ public class NrfMeshRepository implements MeshProvisioningStatusCallbacks, MeshS
                     }
                 }
 
-            } else if (meshMessage instanceof VendorModelMessageStatus) {
+            }
 
+        if (mMeshMessageLiveData.hasActiveObservers()) {
+            mMeshMessageLiveData.postValue(meshMessage);
+        }
+
+        //Refresh mesh network live data
+        mMeshNetworkLiveData.refresh(mMeshManagerApi.getMeshNetwork());
+    }
+
+    @Override
+    public void onMeshMessageReceived(int src, @NonNull MeshMessage original, @NonNull MeshMessage meshMessage) {
+        final ProvisionedMeshNode node = mMeshNetwork.getNode(src);
+        if (node != null)
+            if (meshMessage instanceof VendorModelMessageStatus) {
                 if (updateNode(node)) {
                     final VendorModelMessageStatus status = (VendorModelMessageStatus) meshMessage;
                     if (node.getElements().containsKey(status.getSrcAddress())) {
@@ -927,13 +943,6 @@ public class NrfMeshRepository implements MeshProvisioningStatusCallbacks, MeshS
                     }
                 }
             }
-
-        if (mMeshMessageLiveData.hasActiveObservers()) {
-            mMeshMessageLiveData.postValue(meshMessage);
-        }
-
-        //Refresh mesh network live data
-        mMeshNetworkLiveData.refresh(mMeshManagerApi.getMeshNetwork());
     }
 
     @Override
