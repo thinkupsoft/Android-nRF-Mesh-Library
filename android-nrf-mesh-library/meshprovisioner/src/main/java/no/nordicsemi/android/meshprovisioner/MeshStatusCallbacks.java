@@ -24,6 +24,7 @@ package no.nordicsemi.android.meshprovisioner;
 
 import androidx.annotation.NonNull;
 
+import no.nordicsemi.android.meshprovisioner.transport.AccessMessage;
 import no.nordicsemi.android.meshprovisioner.transport.ControlMessage;
 import no.nordicsemi.android.meshprovisioner.transport.MeshMessage;
 
@@ -95,7 +96,7 @@ public interface MeshStatusCallbacks {
     void onMeshMessageReceived(final int src, @NonNull final MeshMessage meshMessage);
 
 
-    void onMeshMessageReceived(final int src, @NonNull final MeshMessage original, @NonNull final MeshMessage meshMessage);
+    void onMeshMessageReceived(final int src, @NonNull final MeshMessage original, @NonNull final AccessMessage meshMessage);
 
     /**
      * Callback to notify if the decryption failed of a received mesh message

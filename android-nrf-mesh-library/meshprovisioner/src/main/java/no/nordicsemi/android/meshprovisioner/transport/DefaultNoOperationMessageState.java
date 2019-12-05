@@ -8,6 +8,7 @@ import java.util.UUID;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
 import no.nordicsemi.android.meshprovisioner.Group;
 import no.nordicsemi.android.meshprovisioner.MeshManagerApi;
 import no.nordicsemi.android.meshprovisioner.MeshNetwork;
@@ -338,16 +339,8 @@ class DefaultNoOperationMessageState extends MeshMessageState {
                 }
                 break;
             case 3:
-                if (mMeshMessage instanceof VendorModelMessageAcked) {
-                    final VendorModelMessageAcked vendorModelMessageAcked = (VendorModelMessageAcked) mMeshMessage;
-                    final VendorModelMessageStatus status = new VendorModelMessageStatus(message, vendorModelMessageAcked.getModelIdentifier());
-                    mMeshStatusCallbacks.onMeshMessageReceived(message.getSrc(), mMeshMessage, status);
-                    Log.v(TAG, "Vendor model Access PDU Received: " + MeshParserUtils.bytesToHex(accessPayload, false));
-                } else if (mMeshMessage instanceof VendorModelMessageUnacked) {
-                    final VendorModelMessageUnacked vendorModelMessageUnacked = (VendorModelMessageUnacked) mMeshMessage;
-                    final VendorModelMessageStatus status = new VendorModelMessageStatus(message, vendorModelMessageUnacked.getModelIdentifier());
-                    mMeshStatusCallbacks.onMeshMessageReceived(message.getSrc(), mMeshMessage, status);
-                }
+                Log.v(TAG, "Vendor model Access PDU Received: " + MeshParserUtils.bytesToHex(accessPayload, false));
+                mMeshStatusCallbacks.onMeshMessageReceived(message.getSrc(), mMeshMessage, message);
                 break;
             default:
                 Log.v(TAG, "Unknown Access PDU Received: " + MeshParserUtils.bytesToHex(accessPayload, false));
