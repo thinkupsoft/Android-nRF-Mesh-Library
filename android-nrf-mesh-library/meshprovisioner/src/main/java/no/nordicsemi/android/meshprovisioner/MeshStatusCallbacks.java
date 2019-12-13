@@ -96,7 +96,7 @@ public interface MeshStatusCallbacks {
     void onMeshMessageReceived(final int src, @NonNull final MeshMessage meshMessage);
 
 
-    void onMeshMessageReceived(final int src, @NonNull final MeshMessage original, @NonNull final AccessMessage meshMessage);
+    void onMeshMessageReceived(final int src, final MeshMessage original, @NonNull final AccessMessage meshMessage);
 
     /**
      * Callback to notify if the decryption failed of a received mesh message

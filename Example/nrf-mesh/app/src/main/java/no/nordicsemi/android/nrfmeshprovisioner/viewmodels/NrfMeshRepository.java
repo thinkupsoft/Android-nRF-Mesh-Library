@@ -32,6 +32,7 @@ import no.nordicsemi.android.meshprovisioner.UnprovisionedBeacon;
 import no.nordicsemi.android.meshprovisioner.models.SigModelParser;
 import no.nordicsemi.android.meshprovisioner.provisionerstates.ProvisioningState;
 import no.nordicsemi.android.meshprovisioner.provisionerstates.UnprovisionedMeshNode;
+import no.nordicsemi.android.meshprovisioner.transport.AccessMessage;
 import no.nordicsemi.android.meshprovisioner.transport.ConfigAppKeyAdd;
 import no.nordicsemi.android.meshprovisioner.transport.ConfigAppKeyStatus;
 import no.nordicsemi.android.meshprovisioner.transport.ConfigCompositionDataGet;
@@ -54,6 +55,7 @@ import no.nordicsemi.android.meshprovisioner.transport.MeshMessage;
 import no.nordicsemi.android.meshprovisioner.transport.MeshModel;
 import no.nordicsemi.android.meshprovisioner.transport.ProvisionedMeshNode;
 import no.nordicsemi.android.meshprovisioner.transport.ProxyConfigFilterStatus;
+import no.nordicsemi.android.meshprovisioner.transport.VendorModelMessageAcked;
 import no.nordicsemi.android.meshprovisioner.transport.VendorModelMessageStatus;
 import no.nordicsemi.android.meshprovisioner.utils.MeshAddress;
 import no.nordicsemi.android.nrfmeshprovisioner.adapter.ExtendedBluetoothDevice;
@@ -929,16 +931,15 @@ public class NrfMeshRepository implements MeshProvisioningStatusCallbacks, MeshS
     }
 
     @Override
-    public void onMeshMessageReceived(int src, @NonNull MeshMessage original, @NonNull MeshMessage meshMessage) {
+    public void onMeshMessageReceived(int src, MeshMessage original, @NonNull AccessMessage meshMessage) {
         final ProvisionedMeshNode node = mMeshNetwork.getNode(src);
         if (node != null)
-            if (meshMessage instanceof VendorModelMessageStatus) {
+            if (original instanceof VendorModelMessageAcked) {
                 if (updateNode(node)) {
-                    final VendorModelMessageStatus status = (VendorModelMessageStatus) meshMessage;
-                    if (node.getElements().containsKey(status.getSrcAddress())) {
-                        final Element element = node.getElements().get(status.getSrcAddress());
+                    if (node.getElements().containsKey(original.getSrc())) {
+                        final Element element = node.getElements().get(original.getSrc());
                         mSelectedElement.postValue(element);
-                        final MeshModel model = element.getMeshModels().get(status.getModelIdentifier());
+                        final MeshModel model = element.getMeshModels().get(original.getSrc());
                         mSelectedModel.postValue(model);
                     }
                 }
