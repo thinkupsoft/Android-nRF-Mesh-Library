@@ -180,9 +180,17 @@ abstract class ProvisionedBaseMeshNode implements Parcelable {
         return isConfigured;
     }
 
+    public final boolean isOnline() {
+        return isOnline;
+    }
+
     @RestrictTo(RestrictTo.Scope.LIBRARY)
     public final void setConfigured(final boolean configured) {
         isConfigured = configured;
+    }
+
+    public final void setOnline(final boolean online) {
+        isOnline = online;
     }
 
     public final String getNodeName() {
