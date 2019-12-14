@@ -101,6 +101,9 @@ abstract class ProvisionedBaseMeshNode implements Parcelable {
     @ColumnInfo(name = "configured")
     @Expose
     boolean isConfigured;
+    @Ignore
+    @Expose
+    boolean isOnline;
     @ColumnInfo(name = "device_key")
     @Expose
     byte[] deviceKey;
