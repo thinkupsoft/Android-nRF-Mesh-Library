@@ -104,6 +104,9 @@ abstract class ProvisionedBaseMeshNode implements Parcelable {
     @Ignore
     @Expose
     boolean isOnline;
+    @Ignore
+    @Expose
+    int batteryLevel;
     @ColumnInfo(name = "device_key")
     @Expose
     byte[] deviceKey;
@@ -184,6 +187,10 @@ abstract class ProvisionedBaseMeshNode implements Parcelable {
         return isOnline;
     }
 
+    public final int getBatteryLevel() {
+        return batteryLevel;
+    }
+
     @RestrictTo(RestrictTo.Scope.LIBRARY)
     public final void setConfigured(final boolean configured) {
         isConfigured = configured;
@@ -191,6 +198,10 @@ abstract class ProvisionedBaseMeshNode implements Parcelable {
 
     public final void setOnline(final boolean online) {
         isOnline = online;
+    }
+
+    public final void setBatteryLevel(final int level) {
+        batteryLevel = level;
     }
 
     public final String getNodeName() {
