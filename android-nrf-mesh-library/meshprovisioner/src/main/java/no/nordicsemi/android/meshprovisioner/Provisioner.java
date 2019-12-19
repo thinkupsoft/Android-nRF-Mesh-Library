@@ -38,7 +38,6 @@ import static androidx.room.ForeignKey.CASCADE;
                 childColumns = "mesh_uuid",
                 onUpdate = CASCADE, onDelete = CASCADE),
         indices = @Index("mesh_uuid"))
-@RestrictTo(RestrictTo.Scope.LIBRARY)
 public class Provisioner implements Parcelable {
 
     @ColumnInfo(name = "mesh_uuid")
