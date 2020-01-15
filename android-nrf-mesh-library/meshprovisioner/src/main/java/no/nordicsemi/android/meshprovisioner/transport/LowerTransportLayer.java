@@ -57,6 +57,7 @@ abstract class LowerTransportLayer extends UpperTransportLayer {
     private static final int SEGMENTED_MESSAGE_HEADER_LENGTH = 4;
     private static final int UNSEGMENTED_ACK_MESSAGE_HEADER_LENGTH = 3;
     private static final long INCOMPLETE_TIMER_DELAY = 10 * 1000; // According to the spec the incomplete timer must be a minimum of 10 seconds.
+    private static final Integer[] unsegmentedOpCodes = new Integer[]{0xF2, 0xF3};
 
     private final SparseArray<byte[]> segmentedAccessMessageMap = new SparseArray<>();
     private final SparseArray<byte[]> segmentedControlMessageMap = new SparseArray<>();
@@ -148,7 +149,7 @@ abstract class LowerTransportLayer extends UpperTransportLayer {
         final SparseArray<byte[]> lowerTransportAccessPduMap;
         Log.v("TKUP-NEURAL::", "Creating Message: " + message.getOpCode() + ":" + upperTransportPDU.length);
         Log.v("TKUP-NEURAL::", Arrays.toString(upperTransportPDU));
-        if (upperTransportPDU.length <= MAX_SEGMENTED_ACCESS_PAYLOAD_LENGTH) {
+        if (upperTransportPDU.length <= MAX_SEGMENTED_ACCESS_PAYLOAD_LENGTH || Arrays.asList(unsegmentedOpCodes).contains(message.getOpCode())) {
             message.setSegmented(false);
             final byte[] lowerTransportPDU = createUnsegmentedAccessMessage(message);
             lowerTransportAccessPduMap = new SparseArray<>();
@@ -172,8 +173,6 @@ abstract class LowerTransportLayer extends UpperTransportLayer {
                 break;
             case MeshManagerApi.PDU_TYPE_NETWORK:
                 final byte[] transportControlPdu = message.getTransportControlPdu();
-                Log.v("TKUP-NEURAL::", "Creating Message: " + message.getOpCode() + ":" + transportControlPdu.length);
-                Log.v("TKUP-NEURAL::", Arrays.toString(transportControlPdu));
                 if (transportControlPdu.length <= MAX_UNSEGMENTED_CONTROL_PAYLOAD_LENGTH) {
                     Log.v(TAG, "Creating unsegmented transport control");
                     createUnsegmentedControlMessage(message);
