@@ -30,6 +30,7 @@ import java.nio.ByteOrder;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
+
 import no.nordicsemi.android.meshprovisioner.MeshManagerApi;
 import no.nordicsemi.android.meshprovisioner.Provisioner;
 import no.nordicsemi.android.meshprovisioner.control.BlockAcknowledgementMessage;
@@ -168,6 +169,8 @@ abstract class LowerTransportLayer extends UpperTransportLayer {
                 break;
             case MeshManagerApi.PDU_TYPE_NETWORK:
                 final byte[] transportControlPdu = message.getTransportControlPdu();
+                Log.v("TKUP-NEURAL::", "Creating Message: " + message.getOpCode() + ":" + transportControlPdu.length);
+                Log.v("TKUP-NEURAL::", transportControlPdu.toString());
                 if (transportControlPdu.length <= MAX_UNSEGMENTED_CONTROL_PAYLOAD_LENGTH) {
                     Log.v(TAG, "Creating unsegmented transport control");
                     createUnsegmentedControlMessage(message);
