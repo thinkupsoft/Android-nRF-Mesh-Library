@@ -47,7 +47,7 @@ import no.nordicsemi.android.meshprovisioner.utils.SecureUtils;
 abstract class UpperTransportLayer extends AccessLayer {
     private static final String TAG = UpperTransportLayer.class.getSimpleName();
     private static final int PROXY_CONFIG_OPCODE_LENGTH = 1;
-    static final int MAX_SEGMENTED_ACCESS_PAYLOAD_LENGTH = 12;
+    static final int MAX_SEGMENTED_ACCESS_PAYLOAD_LENGTH = 17;
     static final int MAX_UNSEGMENTED_CONTROL_PAYLOAD_LENGTH = 11;
     static final int MAX_SEGMENTED_CONTROL_PAYLOAD_LENGTH = 8;
 
