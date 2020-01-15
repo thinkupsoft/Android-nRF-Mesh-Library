@@ -27,6 +27,7 @@ import android.util.SparseArray;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.util.Arrays;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
@@ -145,6 +146,8 @@ abstract class LowerTransportLayer extends UpperTransportLayer {
     public final void createLowerTransportAccessPDU(@NonNull final AccessMessage message) {
         final byte[] upperTransportPDU = message.getUpperTransportPdu();
         final SparseArray<byte[]> lowerTransportAccessPduMap;
+        Log.v("TKUP-NEURAL::", "Creating Message: " + message.getOpCode() + ":" + upperTransportPDU.length);
+        Log.v("TKUP-NEURAL::", Arrays.toString(upperTransportPDU));
         if (upperTransportPDU.length <= MAX_SEGMENTED_ACCESS_PAYLOAD_LENGTH) {
             message.setSegmented(false);
             final byte[] lowerTransportPDU = createUnsegmentedAccessMessage(message);
@@ -170,7 +173,7 @@ abstract class LowerTransportLayer extends UpperTransportLayer {
             case MeshManagerApi.PDU_TYPE_NETWORK:
                 final byte[] transportControlPdu = message.getTransportControlPdu();
                 Log.v("TKUP-NEURAL::", "Creating Message: " + message.getOpCode() + ":" + transportControlPdu.length);
-                Log.v("TKUP-NEURAL::", transportControlPdu.toString());
+                Log.v("TKUP-NEURAL::", Arrays.toString(transportControlPdu));
                 if (transportControlPdu.length <= MAX_UNSEGMENTED_CONTROL_PAYLOAD_LENGTH) {
                     Log.v(TAG, "Creating unsegmented transport control");
                     createUnsegmentedControlMessage(message);
