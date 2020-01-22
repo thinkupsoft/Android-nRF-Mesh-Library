@@ -178,7 +178,7 @@ public abstract class MeshModel implements Parcelable {
                     status.getPublishTtl(),
                     status.getPublicationSteps(),
                     status.getPublicationResolution(),
-                    status.getPublishRetransmitCount(),
+                    1,
                     status.getPublishRetransmitIntervalSteps());
         }
     }
