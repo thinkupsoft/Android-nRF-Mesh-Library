@@ -1153,7 +1153,12 @@ public class MeshManagerApi implements MeshMngrApi {
         return true;
     }
 
-    public void updateDb() {
-        mMeshNetworkDb.updateGroups(mGroupsDao, mMeshNetwork.groups);
+    public void addGroupDb(Group group) {
+        mMeshNetworkDb.insertInstGroup(mGroupDao, group);
     }
+
+    public void deleteGroupDb(Group group) {
+        mMeshNetworkDb.removeInstGroup(mGroupDao, group);
+    }
+
 }

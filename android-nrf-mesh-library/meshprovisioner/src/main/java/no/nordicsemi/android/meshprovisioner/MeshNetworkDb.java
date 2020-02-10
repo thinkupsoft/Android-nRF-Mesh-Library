@@ -244,13 +244,20 @@ abstract class MeshNetworkDb extends RoomDatabase {
         new InsertGroupAsyncTask(dao).execute(group);
     }
 
+    void insertInstGroup(@NonNull final GroupDao dao, @NonNull final Group group) {
+        dao.insert(group);
+    }
+
+    void removeInstGroup(@NonNull final GroupDao dao, @NonNull final Group group) {
+        dao.delete(group);
+    }
+
     void updateGroup(@NonNull final GroupDao dao, @NonNull final Group group) {
         new UpdateGroupAsyncTask(dao).execute(group);
     }
 
     void updateGroups(@NonNull final GroupsDao dao, @NonNull final List<Group> groups) {
-        dao.update(groups);
-        //new UpdateGroupsAsyncTask(dao, groups).execute();
+        new UpdateGroupsAsyncTask(dao, groups).execute();
     }
 
     void deleteGroup(@NonNull final GroupDao dao, @NonNull final Group group) {
